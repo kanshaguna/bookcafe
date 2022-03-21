@@ -21,17 +21,23 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+env = environ.Env (
+    DEBUG = config('DEBUG', cast=bool)
+)
 
-SECRET_KEY = config("SECRET_KEY", default='')
 
-DEBUG = config('DEBUG', cast=bool)
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
+
+DEBUG = env('DEBUG')
+
+SECRET_KEY = env("SECRET_KEY", default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -87,12 +93,8 @@ WSGI_APPLICATION = 'bookcafe.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER':config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-    }
+    'default': env.db()
+    
 }
 
 
