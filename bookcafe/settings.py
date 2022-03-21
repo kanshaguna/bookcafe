@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 import django_heroku
-import environ
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,16 +27,11 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-env = environ.Env (
-    DEBUG = config('DEBUG', cast=bool)
-)
+
+DEBUG = config('DEBUG', cast=bool)
 
 
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
-
-DEBUG = env('DEBUG')
-
-SECRET_KEY = env("SECRET_KEY", default='')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -93,8 +87,12 @@ WSGI_APPLICATION = 'bookcafe.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db()
-    
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER':config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+    }
 }
 
 
