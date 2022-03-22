@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
-from dj_database_url import parse as db_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,14 +23,13 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
-SECRET_KEY = config('SECRET_KEY')
-
+SECRET_KEY = 'django-insecure-vm4s-b6uzeo_i+cgw_#qkv+ng69&e3k%w=5xig4gar06xsdk_-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['thebookcafe.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -48,7 +45,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'bookcafe.urls'
@@ -83,28 +79,13 @@ WSGI_APPLICATION = 'bookcafe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': config('DB_NAME'),
-#         'USER':config('DB_USER'),
-#         'PASSWORD': config('DB_PASSWORD'),
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'menudb',
-#         'USER':'root',
-#         'PASSWORD': 'gR@p3s01#',
-#     }
-# }
 DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        default='sqlite:///' + BASE_DIR.child('db.sqlite3'),
-        cast=db_url
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'menudb',
+        'USER':'root',
+        'PASSWORD': 'gR@p3s01#',
+    }
 }
 
 
@@ -146,10 +127,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-
-STATICFILES_STORAGE = [
-    'whitenoise.django.CompressedManifestStaticFilesStorage'
-]
+# STATICFILES_STORAGE = [
+#     'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# ]
 
 
 # #HTTPS SETTINGS 
@@ -162,9 +142,6 @@ STATICFILES_STORAGE = [
 # SECURE_HSTS_PRELOAD = True
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-
-prod_db  =  db_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
 
 # django_heroku.settings(locals())
 
