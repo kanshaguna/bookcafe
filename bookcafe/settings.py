@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-vm4s-b6uzeo_i+cgw_#qkv+ng69&e3k%w=5xig4gar06xsdk_-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['thebookcafe.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+   
 ]
 
 ROOT_URLCONF = 'bookcafe.urls'
@@ -127,23 +127,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
-# STATICFILES_STORAGE = [
-#     'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# ]
 
-
-# #HTTPS SETTINGS 
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-
-# #HSTS SETTINGS 
-# SECURE_HSTS_SECONDS = 31536000 #1year
-# SECURE_HSTS_PRELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-
-# django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
