@@ -85,6 +85,8 @@ DATABASES = {
         'NAME': 'menudb',
         'USER':'root',
         'PASSWORD': 'gR@p3s01#',
+        'HOST':'localhost',
+        'PORT': ''
     }
 }
 
