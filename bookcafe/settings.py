@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'menudb',
-        'USER':'root',
-        'PASSWORD': 'gR@p3s01#',
+        'USER':'b71f4471d9a779',
+        'PASSWORD': '19b56235',
     }
 }
 
