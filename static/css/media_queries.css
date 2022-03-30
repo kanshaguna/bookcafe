@@ -1,0 +1,79 @@
+  /* For mobile phones: */
+  @media only screen and (max-width: 768px) {
+    .section-booking-submitted {
+      background-color: black;
+      height: 100%;
+      margin: auto;
+    }
+
+    .centered {
+      font-size: 25px;
+    }
+  
+    .outlet-container {
+      display: inline-block;
+    }
+
+    .booking-container {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        
+    }
+  
+    .section-outlets {
+      height: 50%;
+    }
+  
+    .outlet-text {
+      line-height:0.8rem;
+    }
+  
+    .booking-img {
+      display:none;
+    }
+  
+    .booking-text {
+      color: white;
+      width: 100px;
+    }
+  
+    th, td {
+      font-size: 15px;
+      padding-left :0px;
+      padding-right: 0px;
+     
+    }
+    .brand-text {
+      font-size: 20px;
+      
+    }
+
+    .back-button {
+      padding-top:150px;
+    }
+
+  }
+
+  /* For mobile phones: */
+  @media only screen and (min-width:769px) and (max-width: 1000px) {
+    .section-menu {
+      height: 80%;
+    }
+
+    .booking-container {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      width: 100%;
+  }
+  .brand-text {
+    font-size: 25px;
+  }
+
+  .section-booking-submitted {
+    background-color: black;
+    height: 100%;
+    margin: auto;
+  }
+}
