@@ -23,13 +23,13 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-DEBUG = True
+DEBUG = False
 
 SECRET_KEY = 'django-insecure-vm4s-b6uzeo_i+cgw_#qkv+ng69&e3k%w=5xig4gar06xsdk_-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thebookcafe.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
