@@ -1,1 +1,1 @@
-web: gunicorn bookcafeApp.wsgi --log-file -
+web: gunicorn bookcafe.wsgi --log-file -
