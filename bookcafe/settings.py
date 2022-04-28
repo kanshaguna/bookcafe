@@ -86,6 +86,7 @@ DATABASES = {
         'NAME': 'menudb',
         'USER':'b71f4471d9a779',
         'PASSWORD': '19b56235',
+        'HOST' : 'us-cdbr-east-05.cleardb.net'
     }
 }
 
