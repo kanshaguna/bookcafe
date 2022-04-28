@@ -105,13 +105,13 @@
         <div id="section-menuid" class="section-menu">
           <p class="title">Menu</p>
           <div  class="menu-text">
-            {% if menu %}
+            {% if Menu %}
             <table>
                 <thead class="menu-header">
                   <th>Item</th>
                   <th>Price(RM)</th>
                 </thead>
-              {% for bookcafe in menu %}
+              {% for bookcafe in Menu %}
                 <tr>
                   <td >{{bookcafe.itemName}}</td>
                   <td style="text-align:center">{{bookcafe.itemPrice}}</td>
